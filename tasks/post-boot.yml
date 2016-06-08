@@ -1,0 +1,10 @@
+---
+- name: Render configuration
+  template:
+    src: influxdb.conf.j2
+    dest: /etc/influxdb/influxdb.conf
+
+- name: Ensure InfluxDB is started
+  service:
+    name: influxdb
+    state: started

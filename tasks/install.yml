@@ -1,0 +1,20 @@
+---
+- name: Ensure apt-https Driver is Present
+  apt:
+    name: apt-transport-https
+    state: present
+
+- name: Add Apt Repository
+  apt_key:
+    url: "{{ influxdb_apt_key_url }}"
+
+- name: Add Influx Apt Repository
+  apt_repository:
+    repo: "{{ influxdb_debian_repo }}"
+    state: present
+    update_cache: yes
+
+- name: Install InfluxDB
+  apt:
+    name: influxdb
+    state: present

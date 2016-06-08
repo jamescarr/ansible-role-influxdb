@@ -1,0 +1,8 @@
+---
+- include: install.yml
+  tags: "{{ influxdb_role_install_tag }}"
+
+- include: post-boot.yml
+  tags: "{{ influxdb_role_postboot_tag }}"
+
+

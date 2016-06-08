@@ -1,0 +1,65 @@
+---
+
+# influxDB configuration variables
+influxdb_reporting_disabled: 'false'
+influxdb_metadata_dir: /var/lib/influxdb/meta
+
+# data
+influxdb_data_enabled: 'true'
+influxdb_data_dir: /var/lib/influxdb/data
+influxdb_querylog_enabled: 'false'
+
+influxdb_cluster_shard_writer_timeout: 5s
+influxdb_cluster_write_timeout: 10s
+influxdb_cluster_max_concurrent_queries: 0
+influxdb_cluster_query_timeout: 0s
+influxdb_cluster_max_select_point: 0
+influxdb_cluster_max_select_series: 0
+influxdb_cluster_max_select_buckets: 0
+
+# shard precreation
+influxdb_shard_precreation_enabled: 'true'
+influxdb_shard_precreation_check_interval: 10m
+influxdb_shard_precreation_advance_period: 30m
+
+# admin
+influxdb_admin_enabled: 'true'
+influxdb_admin_bind_address: :8083
+influxdb_admin_https_enabled: 'false'
+influxdb_admin_https_cert: /etc/ssl/influxdb.pem
+
+# http
+influxdb_http_enabled: 'true'
+influxdb_http_log_enabled: 'true'
+influxdb_http_auth_enabled: 'false'
+influxdb_http_write_tracing: 'false'
+influxdb_http_pprof_enabled: 'false'
+influxdb_http_bind_address: :8086
+influxdb_http_https_enabled: 'false'
+influxdb_http_https_cert: /etc/ssl/influxdb.pem
+influxdb_http_max_row_limit: 10000
+
+# graphite listeners
+influxdb_graphite_enabled: 'false'
+influxdb_graphite_database: graphite
+influxdb_graphite_bind_address: :2003
+influxdb_graphite_protocol: tcp
+influxdb_graphite_consistency_level: one
+influxdb_graphite_batch_size: 5000
+influxdb_graphite_batch_pending: 10
+influxdb_graphite_batch_timeout: 1s
+influxdb_graphite_udp_read_buffer: 0
+
+# udp listeners
+influxdb_udp_enabled: 'false'
+influxdb_udp_bind_address: ""
+influxdb_udp_database: udp
+influxdb_udp_retention_policy: ""
+
+influxdb_udp_batch_size: 1000
+influxdb_udp_batch_pending: 5
+influxdb_udp_batch_timeout: 1s
+influxdb_udp_read_buffer: 0
+influxdb_udp_payload_size: 65536
+
+# collectd listeners

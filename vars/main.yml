@@ -1,0 +1,8 @@
+---
+# role variables
+influxdb_apt_key_url: https://repos.influxdata.com/influxdb.key
+influxdb_debian_repo: deb https://repos.influxdata.com/debian wheezy stable
+
+# install and post-boot tags
+influxdb_role_install_tag: install
+influxdb_role_postboot_tag: postboot
