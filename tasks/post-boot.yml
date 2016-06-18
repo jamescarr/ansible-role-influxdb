@@ -3,8 +3,10 @@
   template:
     src: influxdb.conf.j2
     dest: /etc/influxdb/influxdb.conf
+  notify: Restart InfluxDB
 
 - name: Ensure InfluxDB is started
   service:
     name: influxdb
+    enabled: yes
     state: started
