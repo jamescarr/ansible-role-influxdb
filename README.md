@@ -1,6 +1,8 @@
 # Ansible Role: InfluxDB
 
 [![Build Status](https://travis-ci.org/jamescarr/ansible-role-influxdb.svg?branch=master)](https://travis-ci.org/jamescarr/ansible-role-influxdb)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-jamescarr.influxdb-blue.svg)](https://galaxy.ansible.com/jamescarr/influxdb/)
+
 
 Installs InfluxDB on Debian/Ubuntu.
 
