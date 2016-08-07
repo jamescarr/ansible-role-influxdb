@@ -6,7 +6,7 @@
 # to track the number of instances running and the versions, which
 # is very helpful for us.
 # Change this option to true to disable reporting.
-reporting-disabled = {{ influxdb_reporting_disabled }}
+reporting-disabled = {{ influxdb_reporting_disabled | string | lower }}
 
 # we'll try to get the hostname automatically, but if it the os returns something
 # that isn't resolvable by other servers in the cluster, use this option to
@@ -44,7 +44,7 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 
 [data]
   # Controls if this node holds time series data shards in the cluster
-  enabled = {{ influxdb_data_enabled }}
+  enabled = {{ influxdb_data_enabled | string | lower }}
 
   dir = "{{ influxdb_data_dir }}"
 
@@ -109,8 +109,8 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 ###
 
 [retention]
-  enabled = true
-  check-interval = "30m"
+  enabled = {{ influxdb_retention_enabled | string | lower }}
+  check-interval = "{{ influxdb_retention_check_interval }}
 
 ###
 ### [shard-precreation]
@@ -121,7 +121,7 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 ### or partially in the past.
 
 [shard-precreation]
-  enabled = {{ influxdb_shard_precreation_enabled }}
+  enabled = {{ influxdb_shard_precreation_enabled | string | lower}}
   check-interval = "{{ influxdb_shard_precreation_check_interval }}"
   advance-period = "{{ influxdb_shard_precreation_advance_period }}"
 
@@ -135,7 +135,7 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 ### this retention policy is configured as the default for the database.
 
 [monitor]
-  store-enabled = true # Whether to record statistics internally.
+  store-enabled = {{ influxdb_monitor_enabled | string | lower }} # Whether to record statistics internally.
   store-database = "_internal" # The destination database for recorded statistics
   store-interval = "10s" # The interval at which to record statistics
 
@@ -147,7 +147,7 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 ###
 
 [admin]
-  enabled = {{ influxdb_admin_enabled }}
+  enabled = {{ influxdb_admin_enabled | string | lower }}
   bind-address = "{{ influxdb_admin_bind_address }}"
   https-enabled = {{ influxdb_admin_https_enabled }}
   https-certificate = "{{ influxdb_admin_https_cert }}"
@@ -160,7 +160,7 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 ###
 
 [http]
-  enabled = {{ influxdb_http_enabled }}
+  enabled = {{ influxdb_http_enabled | string | lower }}
   bind-address = "{{ influxdb_http_bind_address }}"
   auth-enabled = {{ influxdb_http_auth_enabled }}
   log-enabled = {{ influxdb_http_log_enabled }}
@@ -177,7 +177,7 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 ###
 
 [[graphite]]
-  enabled = {{ influxdb_graphite_enabled }}
+  enabled = {{ influxdb_graphite_enabled | string | lower }}
   {% if influxdb_graphite_enabled %}
   database = "{{ influxdb_graphite_database }}"
   bind-address = "{{ influxdb_graphite_bind_address }}"
@@ -218,7 +218,7 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 ###
 
 [[collectd]]
-  enabled = false
+  enabled = {{ influxdb_collect_enabled | string | lower }}
   # bind-address = ""
   # database = ""
   # typesdb = ""
@@ -288,5 +288,5 @@ reporting-disabled = {{ influxdb_reporting_disabled }}
 
 [continuous_queries]
   log-enabled = true
-  enabled = true
+  enabled = {{ influxdb_continuous_queries_enabled }}
   # run-interval = "1s" # interval for how often continuous queries will be checked if they need to run

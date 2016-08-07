@@ -62,4 +62,15 @@ influxdb_udp_batch_timeout: 1s
 influxdb_udp_read_buffer: 0
 influxdb_udp_payload_size: 65536
 
+# monitor
+influxdb_monitor_enabled: false
+
+# retention
+influxdb_retention_enabled: true
+influxdb_retention_check_interval: 30m
+
 # collectd listeners
+influxdb_collect_enabled: false
+
+# continuous_queries
+influxdb_continuous_queries_enabled: true
