@@ -110,7 +110,7 @@ reporting-disabled = {{ influxdb_reporting_disabled | string | lower }}
 
 [retention]
   enabled = {{ influxdb_retention_enabled | string | lower }}
-  check-interval = "{{ influxdb_retention_check_interval }}
+  check-interval = "{{ influxdb_retention_check_interval }}"
 
 ###
 ### [shard-precreation]
@@ -288,5 +288,5 @@ reporting-disabled = {{ influxdb_reporting_disabled | string | lower }}
 
 [continuous_queries]
   log-enabled = true
-  enabled = {{ influxdb_continuous_queries_enabled }}
+  enabled = {{ influxdb_continuous_queries_enabled | string | lower }}
   # run-interval = "1s" # interval for how often continuous queries will be checked if they need to run
