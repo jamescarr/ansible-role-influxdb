@@ -17,6 +17,13 @@ influxdb_cluster_max_select_point: 0
 influxdb_cluster_max_select_series: 0
 influxdb_cluster_max_select_buckets: 0
 
+influxdb_cache_max_memory_size: 524288000
+influxdb_cache_snapshot_memory_size: 26214400
+influxdb_cache_snapshot_write_cold_duration: 1h
+influxdb_compact_min_file_count: 3
+influxdb_compact_full_write_cold_duration: 24h
+influxdb_max_points_per_block: 1000
+
 # shard precreation
 influxdb_shard_precreation_enabled: 'true'
 influxdb_shard_precreation_check_interval: 10m
@@ -49,6 +56,8 @@ influxdb_graphite_batch_size: 5000
 influxdb_graphite_batch_pending: 10
 influxdb_graphite_batch_timeout: 1s
 influxdb_graphite_udp_read_buffer: 0
+influxdb_graphite_separator: .
+influxdb_graphite_tags: []
 
 # udp listeners
 influxdb_udp_enabled: 'false'
